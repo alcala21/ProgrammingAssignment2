@@ -2,7 +2,7 @@
 ## functions do
 
 ## These functions build a matrix in a special form that is suitable for 
-## calculation and caching the inverse of the matrix. The functions are 
+## calculating and caching the inverse of the matrix. The functions are 
 ## makeCacheMatrix and cacheSolve, which build the matrix and calculate the
 ## inverse, respectively.
 
@@ -31,14 +31,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## cacheSolve returns the inverse of a 'matrix' if it has already been
 ## calculated; otherwise, it calculates the inverse.
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x) {
 	inverse <- x$getInverse()
 	if(!is.null(inverse)) {
 		message('getting cached data')
 		return(inverse)
 	}
 	tempMatrix <- x$get()
-	inverse <- solve(tempMatrix, ...)
+	inverse <- solve(tempMatrix)
 	x$setInverse(inverse)
 	inverse
 }
